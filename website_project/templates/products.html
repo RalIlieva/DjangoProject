@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="{% static 'images/your_image.jpg' %}" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-sm-6">
+            <h2 class="mt-4 mb-4">Product Information</h2>
+            <p>Insert your product information here</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

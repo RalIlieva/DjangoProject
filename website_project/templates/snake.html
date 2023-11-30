@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div id="ui">
+        <h2 class="noselect">Snake Game</h2>
+        <button id="replay" class="noselect">Replay</button>
+        <div id="score" class="noselect">Score: 00</div>
+    </div>
+    <div id="gameCanvasWrapper">
+        <canvas id="gameCanvas" width="400" height="400" style="border: 2px solid white;"></canvas>
+    </div>
+</div>
+<script src="{% static 'website_project/js/snake_game.js' %}"></script>
+{% endblock %}

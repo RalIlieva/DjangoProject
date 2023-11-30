@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="mt-4 mb-4">Contact Us</h1>
+
+  <form method="post" action="{% url 'contact' %}" class="needs-validation" id="contactForm" novalidate>
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="full_name" class="form-label">Full Name:</label>
+      <input type="text" class="form-control" id="full_name" name="full_name" required>
+      <div class="invalid-feedback">
+        Please enter your full name.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="position_description" class="form-label">Desired Position Description:</label>
+      <textarea class="form-control" id="position_description" name="position_description" rows="3" required></textarea>
+      <div class="invalid-feedback">
+        Please enter a desired position description.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+      <div class="invalid-feedback">
+        Please enter a valid email address.
+      </div>
+    </div>
+
+    <button class="btn btn-secondary mt-4" type="submit">Submit</button>
+
+    {% if messages %}
+      <div class="alert alert-success mt-4">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </form>
+
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Script for email validation -->
+  <script>
+      $(document).ready(function () {
+          $('#contactForm').submit(function (e) {
+              var email = $('#email').val();
+              if (!isValidEmail(email)) {
+                  alert('Invalid email address. Please enter a valid email.');
+                  e.preventDefault(); // Prevent form submission
+              }
+          });
+
+          function isValidEmail(email) {
+              // Simple email validation regex
+              var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return emailRegex.test(email);
+          }
+      });
+  </script>
+{% endblock %}

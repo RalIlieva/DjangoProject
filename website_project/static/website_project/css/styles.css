@@ -1,0 +1,10 @@
+/* styles.css */
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+.nav-item.dropdown:hover .nav-link {
+    background-color: #343a40;
+    color: #ffffff;
+}
